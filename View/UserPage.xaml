@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Module08.View.UserPage"
+             Title="UserPage"
+             BackgroundColor="#1A1A1A">
+    <!-- Dark Background -->
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <!-- Title -->
+            <Label 
+                Text="Data Access using API"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                FontSize="22"
+                TextColor="#87CEEB"
+                FontAttributes="Bold" />
+
+                <!-- Load Users Button -->
+                <Button 
+                Text="Load Users" 
+                Command="{Binding LoadUserCommand}"
+                BackgroundColor="#87CEEB" 
+                TextColor="#1A1A1A"
+                CornerRadius="15"
+                HeightRequest="45"
+                WidthRequest="150"
+                HorizontalOptions="Center" />
+
+                    <!-- Users List -->
+                    <ListView ItemsSource="{Binding Users}" 
+                      SelectedItem="{Binding SelectedUser}"
+                      BackgroundColor="#2A2A2A"
+                      Margin="0,10,0,10"
+                      SeparatorColor="#87CEEB">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal" 
+                                         Padding="10">
+                                        <Label Text="{Binding Name}" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#87CEEB" />
+                                        <Label Text=" | " TextColor="Gray"/>
+                                        <Label Text="{Binding Gender}" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#87CEEB" />
+                                        <Label Text=" | " TextColor="Gray"/>
+                                        <Label Text="{Binding ContactNo}" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#87CEEB" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <!-- Input Fields -->
+                    <Label Text="Name" TextColor="#87CEEB" FontAttributes="Bold"/>
+                    <Entry Placeholder="Enter Name" 
+                   Text="{Binding NameInput}" 
+                   BackgroundColor="#2A2A2A"
+                   TextColor="#FFFFFF" 
+                   PlaceholderColor="#87CEEB"/>
+
+                    <Label Text="Gender" TextColor="#87CEEB" FontAttributes="Bold"/>
+                    <Entry Placeholder="Enter Gender" 
+                   Text="{Binding GenderInput}" 
+                   BackgroundColor="#2A2A2A"
+                   TextColor="#FFFFFF" 
+                   PlaceholderColor="#87CEEB"/>
+
+                    <Label Text="Contact No" TextColor="#87CEEB" FontAttributes="Bold"/>
+                    <Entry Placeholder="Enter Contact No" 
+                   Text="{Binding ContactNoInput}" 
+                   BackgroundColor="#2A2A2A"
+                   TextColor="#FFFFFF" 
+                   PlaceholderColor="#87CEEB"/>
+
+                    <!-- Horizontally Aligned Buttons -->
+                    <HorizontalStackLayout Spacing="15" HorizontalOptions="Center">
+                        <Button 
+                    Text="Add User" 
+                    Command="{Binding AddUserCommand}" 
+                    BackgroundColor="#87CEEB" 
+                    TextColor="#1A1A1A" 
+                    CornerRadius="15"
+                    HeightRequest="45"
+                    WidthRequest="110" />
+
+                        <Button 
+                    Text="Delete User" 
+                    Command="{Binding DeleteUserCommand}" 
+                    BackgroundColor="#87CEEB" 
+                    TextColor="#1A1A1A" 
+                    CornerRadius="15"
+                    HeightRequest="45"
+                    WidthRequest="110" />
+
+                        <Button
+                    Text="Update User"
+                    Command="{Binding UpdateUserCommand}"
+                    BackgroundColor="#87CEEB" 
+                    TextColor="#1A1A1A" 
+                    CornerRadius="15"
+                    HeightRequest="45"
+                    WidthRequest="110" />
+                    </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
